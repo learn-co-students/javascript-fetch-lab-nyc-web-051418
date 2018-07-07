@@ -1,5 +1,9 @@
 const token = "#"
 const myIssuePage = "https://api.github.com/repos/mattzuzolo/javascript-fetch-lab/issues"
+const userName = "mattzuzolo"
+const baseUrl = "https://api.github.com/"
+const fork = `${userName}/javascript-fetch-lab`
+
 
 function getIssues() {
   fetch(myIssuePage)
@@ -27,7 +31,7 @@ function createIssue() {
 
 function showResults(json) {
     let show = `<h1>Forked here: <a href="${this.url}", ${this.url}</a>`
-    let result = document.getElementById("results"),append(show);
+    let result = document.getElementById("results").append(show);
 }
 
 function forkRepo() {
@@ -35,7 +39,7 @@ function forkRepo() {
   fetch(`https://api.github.com/repos/${repo}`, {
     method: "POST",
     headers: {
-      "authorization": `token ${getToken()}}`
+      "authorization": `token ${getToken()}`
     }
   }.then(response => { showResults(response)
   })
@@ -45,5 +49,5 @@ function forkRepo() {
 function getToken() {
   //change to your token to run in browser, but set
   //back to '' before committing so all tests pass
-  return '#'
+  return '';
 }
